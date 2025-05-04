@@ -5,7 +5,7 @@ terraform {
       name = "ControleProdutoInfra"
     }
   }
-  required_provider{
+  required_provider {
     aws = {
       source = "hashcorp/aws"
       version = "~> 3.28.0"
