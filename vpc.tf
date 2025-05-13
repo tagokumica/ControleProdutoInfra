@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
-  cidr_block              = cidrsubnet(local.cidr_block, 12, 1) # /28 (16 IPs totais, 8 utilizáveis)
+  cidr_block              = cidrsubnet(aws_vpc.main.cidr_block, 12, 1) # /28 (16 IPs totais, 8 utilizáveis)
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
 
@@ -20,7 +20,7 @@ resource "aws_subnet" "public" {
 
 resource "aws_subnet" "private" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = cidrsubnet(local.cidr_block, 11, 1) # /27 (32 IPs totais, 16 utilizáveis)
+  cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, 11, 1) # /27 (32 IPs totais, 16 utilizáveis)
   availability_zone = "us-east-1a"
 
   tags = {
