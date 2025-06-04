@@ -7,7 +7,7 @@ resource "aws_ecs_service" "controle_produto_fargate_service" {
   network_configuration {
     subnets         = [aws_subnet.public.id]
     assign_public_ip = true
-    security_groups  = [aws_security_group.ecs_service.id]
+    security_groups  = [aws_security_group.allow_sg.id]
   }
 
   depends_on = [aws_iam_role_policy_attachment.ecs_task_execution_role_policy]
