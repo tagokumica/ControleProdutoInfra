@@ -37,5 +37,5 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
 }
 
 resource "aws_ecs_cluster" "controle_produto_fargate_cluster" {
-  name = "controle-produto-fargate-service"
+  name = "controle_produto_fargate_cluster"
 }
