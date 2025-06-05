@@ -1,6 +1,6 @@
-resource "aws_ecs_service" "controle_produto_fargate_service" {
+resource "aws_ecs_service" "fargate_service" {
   name            = "controle-produto-fargate-service"
-  cluster         = aws_ecs_cluster.controle_produto_fargate_cluster.id
+  cluster         = aws_ecs_cluster.fargate_cluster.id
   launch_type     = "FARGATE"
   desired_count   = 1
 
@@ -36,6 +36,6 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_ecs_cluster" "controle_produto_fargate_cluster" {
+resource "aws_ecs_cluster" "fargate_cluster" {
   name = "controle_produto_fargate_cluster"
 }
