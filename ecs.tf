@@ -54,7 +54,7 @@ resource "aws_ecs_task_definition" "fargate_task" {
   container_definitions = jsonencode([
     {
       name      = "controle-produto-app",
-      image     = "tagokumica/api-product:latest",
+      image     = "${aws_ecr_repository.api_product_repo.repository_url}:latest",
       essential = true,
       portMappings = [
         {
