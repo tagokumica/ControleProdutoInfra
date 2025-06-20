@@ -15,7 +15,7 @@ resource "aws_db_instance" "mysql" {
 
 resource "aws_db_subnet_group" "subnet_group" {
   name       = "rds-subnet-group-private"
-  subnet_ids = [aws_subnet.private.id]
+  subnet_ids = [aws_subnet.private-a.id, aws_subnet.private-b.id]
 
   tags = {
     Name = "RDS subnet group"
